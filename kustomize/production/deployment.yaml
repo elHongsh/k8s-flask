@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-flask
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: k8s-flask
+          image: qnix95/k8s-flask:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: FLASK_ENV
+              value: production
